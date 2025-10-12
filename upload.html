@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Paper Upload</title>
+    <style>
+        body { font-family: sans-serif; background-color: #1a1a1a; color: #e0e0e0; padding: 40px; }
+        h1 { color: #4CAF50; }
+        form { background-color: #333; padding: 20px; border-radius: 8px; max-width: 500px; }
+        label { display: block; margin-top: 15px; margin-bottom: 5px; color: #bbb; }
+        input, select { width: 100%; padding: 10px; margin-bottom: 10px; background-color: #222; border: 1px solid #555; color: #e0e0e0; border-radius: 4px; }
+        input[type="submit"] { background-color: #4CAF50; color: white; border: none; cursor: pointer; width: auto; margin-top: 20px; }
+        input[type="submit"]:hover { background-color: #45a049; }
+    </style>
+</head>
+<body>
+    <h1>Upload a New Exam Paper</h1>
+    <p>Fill in the details below. This will be used for file naming and search tags.</p>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <label for="admin_name">Your Name:</label>
+        <input type="text" name="admin_name" id="admin_name" placeholder="e.g., Cameron" required>
+        <label for="class">Class:</label>
+        <select name="class" id="class" required>
+            <option value="" disabled selected>Select a Class</option>
+            <option value="BSc">BSc</option> <option value="BA">BA</option> <option value="BSc Hons">BSc Hons</option> <option value="BBA">BBA</option> <option value="BCA">BCA</option> <option value="MCA">MCA</option>
+        </select>
+        <label for="subject">Subject:</label>
+        <select name="subject" id="subject" required>
+            <option value="" disabled selected>Select a Subject</option>
+            <option value="Maths">Maths</option> <option value="Physics">Physics</option> <option value="Chemistry">Chemistry</option> <option value="Hindi">Hindi</option> <option value="English">English</option> <option value="Biology">Biology</option> <option value="Psychology">Psychology</option> <option value="Zoology">Zoology</option> <option value="Computer Science">Computer Science</option> <option value="Political Science">Political Science</option> <option value="Statistics">Statistics</option> <option value="Geography">Geography</option> <option value="Biotechnology">Biotechnology</option> <option value="Microbiology">Microbiology</option> <option value="Environmental Science">Environmental Science</option> <option value="History">History</option> <option value="Economics">Economics</option>
+        </select>
+        <label for="semester">Semester:</label>
+        <select name="semester" id="semester" required>
+            <option value="" disabled selected>Select a Semester</option>
+            <option value="I">I (1)</option> <option value="II">II (2)</option> <option value="III">III (3)</option> <option value="IV">IV (4)</option> <option value="V">V (5)</option> <option value="VI">VI (6)</option> <option value="VII">VII (7)</option> <option value="VIII">VIII (8)</option> <option value="IX">IX (9)</option> <option value="X">X (10)</option>
+        </select>
+        <label for="exam_year">Exam Year:</label>
+        <input list="years" name="exam_year" id="exam_year" placeholder="e.g., 2025 or type custom year" required>
+        <datalist id="years">
+            <option value="2025"></option> <option value="2024"></option> <option value="2023"></option> <option value="2022"></option> <option value="2021"></option> <option value="2020"></option>
+        </datalist>
+        <label for="exam_type">Exam Type:</label>
+        <select name="exam_type" id="exam_type" required>
+            <option value="" disabled selected>Select an Exam Type</option>
+            <option value="Main Semester">Main Semester</option> <option value="CIA">CIA</option> <option value="Half Yearly">Half Yearly</option> <option value="Class Test">Class Test</option> <option value="Yearly">Yearly</option>
+        </select>
+        <label for="medium">Medium:</label>
+        <select name="medium" id="medium" required>
+            <option value="" disabled selected>Select a Medium</option>
+            <option value="English Medium">English Medium</option>
+            <option value="Hindi Medium">Hindi Medium</option>
+        </select>
+        <label for="file">Select PDF File:</label>
+        <input type="file" name="file" id="file" accept=".pdf" required>
+        <input type="submit" value="Upload Paper">
+    </form>
+</body>
+</html>
